@@ -6,7 +6,7 @@ This projet aim at develop a system of sentiment analysis for a product or a ser
   
 >Generally speaking, sentiment analysis aims to determine the attitude of a speaker, writer, or other subject with respect to some topic or the overall contextual polarity or emotional reaction to a document, interaction, or event. The attitude may be a judgment or evaluation (see appraisal theory), affective state (that is to say, the emotional state of the author or speaker), or the intended emotional communication (that is to say, the emotional effect intended by the author or interlocutor).
 
-## Member of contribution
+## Contributor
 * Miaobing CHEN
 * Rui SUN
 
@@ -15,7 +15,15 @@ This projet aim at develop a system of sentiment analysis for a product or a ser
 * Sklearn
 * NLTK
 
+## Domain of application
+(Not define yet)  
+* Film
+* Smartphone
+* Book
+
 ## Usage
 
 
 ## Resource
+* https://en.wikipedia.org/wiki/Sentiment_analysis
+* https://en.wikipedia.org/wiki/Natural_language_processing
