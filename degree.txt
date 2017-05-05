@@ -1,0 +1,187 @@
+100 percent:3
+110 proof:3
+a bit:1
+a good deal:2
+a great deal:3
+a lot:2
+abnormally:3
+aboundingly:3
+about:1
+absolutely:3
+absurdly:3
+abundantly:2
+acceptably:1
+accursedly:2
+ad infinitum:3
+ad nauseam:3
+adequately:2
+admirably:2
+alarmingly:3
+all:3
+all-fired:3
+almost:2
+altogether:3
+amazingly:3
+anything but:1
+approaching:3
+astronomically:3
+at all:3
+awfully:2
+bally:2
+barely:1
+blasted:2
+bleeding:1
+bleeping:1
+blimming:3
+blindingly:3
+bloody:2
+blooming:2
+boiling:2
+breathtakingly:3
+clearly:3
+completely:3
+considerably:2
+crazy:3
+cussed:1
+damn:3
+damned:3
+darn:3
+darned:3
+dead:3
+deservedly:2
+deuced:3
+deucedly:3
+doosed:3
+downright:3
+dreadfully:3
+durn:3
+easily:2
+effing:2
+embarrassingly:3
+enormously:2
+entirely:3
+epically:3
+equally:1
+even:1
+ever so:2
+everloving:2
+exceedingly:2
+excessively:3
+extensively:2
+extra:2
+extremely:3
+fairly:1
+fantastically:3
+far:2
+flipping:2
+freaking:3
+fricking:2
+frigging:2
+fucking:3
+fully:3
+goldurn:2
+good and:2
+greatly:2
+hardly:1
+hella:3
+herostratically:3
+hideously:3
+highly:3
+honkin':1
+honkingly:2
+horribly:3
+how:2
+hugely:3
+immensely:3
+impossibly:3
+incredibly:3
+indeed:1
+infinitely:3
+intensely:3
+jolly:2
+just:1
+largely:3
+least:-3
+less:-1
+literally:2
+little:1
+mad:3
+majorly:2
+mighty:1
+moderately:2
+more:2
+more and more:2
+most:3
+motherfreaking:3
+motherfucking:3
+much:2
+nearly:1
+needlessly:1
+nice and:2
+normally:1
+at all:-3
+noticeably:2
+observably:2
+outright:3
+particularly:2
+partly:1
+peculiarly:2
+perfectly:3
+plain:1
+pleasantly:1
+plum:3
+positively:2
+practically:3
+precious:2
+pretty:2
+profoundly:2
+purely:3
+quite:3
+rather:1
+real:2
+really:1
+reasonably:1
+relatively:1
+remarkably:2
+scarcely:1
+shockingly:3
+simply:1
+slightly:1
+so:2
+sofa king:2
+something:1
+somewhat:1
+spanking:2
+staggeringly:3
+still:2
+stone:3
+strikingly:2
+strongly:2
+sufficiently:2
+supremely:3
+suspiciously:1
+terminally:3
+terribly:2
+though:2
+to death:3
+too:3
+totally:3
+transitorily:1
+tremendously:3
+truly:2
+uberly:2
+unbelievably:3
+unimaginably:3
+unnecessarily:1
+unrelatedly:1
+utterly:3
+very:3
+virtually:3
+way:2
+well:2
+whole hog:3
+whoopingly:3
+wicked:2
+wonderfully:3
+yet:1
+zoomorphically:1
