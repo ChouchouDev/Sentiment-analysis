@@ -12,18 +12,24 @@ This projet aim at develop a system of sentiment analysis for a product or a ser
 
 ## Stuff of developpement
 * Python 3.x
-* Sklearn
 * NLTK
-
-## Domain of application
-(Not define yet)  
-* Film
-* Smartphone
-* Book
+* panda
 
 ## Usage
-  
 
-## Resource
+## Resources Descriptions
+* **sentiment_analyzer_classification.py**  
+  Analyzer based on the one whole texte of review using the algo of classification Bayes
+  
+* **sentiment_analyzer_dict.py**  
+  Analyzer using dictionary of emotional lexicon
+
+* **sentiment_analyzer_dict_complete.py**  
+  Analyzer using dictionary of emotional lexicon with the semantic analyse: negative sentences, adverbs of degree, punctuation, conjunction "but", etc 
+
+
+## Reference
 * https://en.wikipedia.org/wiki/Sentiment_analysis
 * https://en.wikipedia.org/wiki/Natural_language_processing
+* Dataset: http://times.cs.uiuc.edu/~wang296/Data/
+* SentiWordNet: http://sentiwordnet.isti.cnr.it/
