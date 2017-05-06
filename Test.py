@@ -26,7 +26,6 @@ def read_data(folder):
         dataset_ready = [ dataset[rate_class] >=NB_Reviews_Class for rate_class in ['1','2','4','5']]
         if(dataset_ready.count(True) == 4):
             break
-
         # load the reviews
         file = folder + "/" + file
         try:
@@ -73,6 +72,8 @@ def divide_data(reviews):
 print(">>>>>Preparation TEST")
 reviews= read_data("./cameras")
 train_reviews, dev_reviews, test_reviews = divide_data(reviews)
+
+# exit(0)
 
 analyzerClassification = sentiment_analyzer_classification.sentiment_analyzer_classfication()
 analyzerClassification.train(train_reviews)
