@@ -4,9 +4,9 @@ import random
 import math
 from pandas import json
 
-from SentimentAnalysis import sentiment_analyzer_dict_complete
-from SentimentAnalysis import sentiment_analyzer_dict
-from SentimentAnalysis import sentiment_analyzer_classification
+from . import sentiment_analyzer_dict_complete
+from . import sentiment_analyzer_dict
+from . import sentiment_analyzer_classification
 
 
 def read_data(folder):

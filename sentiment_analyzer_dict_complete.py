@@ -170,3 +170,14 @@ class sentiment_analyzer_dict_complete:
         print("FN:%f"%self.score['FN'])
         print("score entire:%f"%self.score['ENTIRE'])
         return self.score['ENTIRE']
+
+def main():
+    analyzerSentenceDictComplete = sentiment_analyzer_dict_complete()
+    print("\n>>Analyzer based on the dictionary of emotional words with semantic analyse")
+    import sys
+    for sentence in sys.argv[1:]:
+        pos, neg = analyzerSentenceDictComplete.predict_review(sentence)
+        print(sentence + "\npositive:" + str(pos) + "," + "negative:" + str(neg)+"\n")
+
+if __name__ == "__main__":
+    main()
