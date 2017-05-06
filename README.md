@@ -16,7 +16,15 @@ This projet aim at develop a system of sentiment analysis for a product or a ser
 * panda
 
 ## Usage
-See the Test.py please
+Use analyzer based on the classification algo Bayes
+```
+>python sentiment_analyzer_dict_complete.py "Sentence for analyze"
+```
+Use analyzer based on the dictionary of emotional words with semantic analyse
+```
+>python sentiment_analyzer_classification.py "Sentence for analyze"
+```
+We can analyze several sentences seperated by space at the same time.
 
 ## Resources Descriptions
 * **Test.py**  
