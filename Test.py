@@ -4,7 +4,6 @@ import random
 import math
 from pandas import json
 
-import sentiment_analyzer_dict
 import sentiment_analyzer_dict_complete
 import sentiment_analyzer_classification
 
@@ -40,8 +39,7 @@ def read_data(folder):
                 continue
             else:
                 dataset[str(rate)] += 1
-            if(type(content)==str and type(rate)==int):
-                reviews.append([content,rate])
+            reviews.append([content, rate])
         except Exception as e:
           print("Ignored Read file error: " + file)
 
