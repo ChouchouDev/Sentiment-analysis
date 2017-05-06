@@ -1,5 +1,6 @@
 # Sentiment-analysis
-This projet aim at develop a system of sentiment analysis for a product or a service. In analysing the sufficient reviews of the products of a domain, we define some propre fecteurs of the review, which will help distinguish its sentiment. The sentiments can be multiple. One typical example is the positive or negative sentiment. 
+This projet aim at develop a system of sentiment analysis for a product or a service. In analysing the sufficient reviews of the products of a domain, we define some propre fecteurs of the review, which will help distinguish its sentiment. The sentiments can be multiple. One typical example is the positive or negative sentiment.   
+In this projet, we have applied two methods to create sentiment analyzer. One is based on the dictionary of positive and negative words, with the semantic analyse: negative sentences, adverbs of degree, punctuation, conjunction "but", etc. The other one is based on the classification algo Bayes, well known in the machine learning domain. 
 
 ## Description
 >**Sentiment analysis** (sometimes known as opinion mining or emotion AI) refers to the use of natural language processing, text analysis, computational linguistics, and biometrics to systematically identify, extract, quantify, and study affective states and subjective information. Sentiment analysis is widely applied to voice of the customer materials such as reviews and survey responses, online and social media, and healthcare materials for applications that range from marketing to customer service to clinical medicine.  
