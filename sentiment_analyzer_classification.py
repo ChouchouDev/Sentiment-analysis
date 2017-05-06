@@ -218,7 +218,7 @@ def main():
                     if (type(content) == str and type(rate) == int):
                         reviews.append([content, rate])
             except Exception as e:
-                print("Read file error: " + file)
+                print("Ignored Read file error: " + file)
 
         print("dataset of reviews" + str(dataset))
         return reviews
