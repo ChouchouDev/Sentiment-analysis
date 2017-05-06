@@ -16,6 +16,7 @@ This projet aim at develop a system of sentiment analysis for a product or a ser
 * panda
 
 ## Usage
+See the Test.py please
 
 ## Resources Descriptions
 * **Test.py**  
