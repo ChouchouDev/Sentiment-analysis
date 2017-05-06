@@ -8,12 +8,12 @@ class sentiment_analyzer_dict_complete:
     def __init__(self):
         # as the dictionary of positive and negative words with their value
         self.dictionary = dict()
-        self.score = {
+        self.accuracy = {
             'TP': 0,
             'TN': 0,
             'FN': 0,
             'FP': 0,
-            'ENTIRE': 0
+            'ACCURACY': 0
         }
 
         with open('./SentiWordNet_simple_format.txt', 'r') as f:
@@ -82,9 +82,8 @@ class sentiment_analyzer_dict_complete:
     def get_value_sentence(self,sentence):
         value_pos = 0
         value_neg = 0
-        words = nltk.word_tokenize(sentence)
-
         # turning logic
+        words = nltk.word_tokenize(sentence)
         if(words.count("but")==1):
             value_pos, value_neg = self.conjunction_but(sentence)
         else:
@@ -156,33 +155,33 @@ class sentiment_analyzer_dict_complete:
             pos,neg = self.predict_review(review[0])
             rate = review[1]
             if ( pos >= neg and rate > 3):
-                self.score['TP'] += 1
+                self.accuracy['TP'] += 1
             elif (pos >= neg and rate < 3):
-                self.score['FP'] += 1
+                self.accuracy['FP'] += 1
             elif (pos < neg and rate < 3):
-                self.score['TN'] += 1
+                self.accuracy['TN'] += 1
             elif (pos <neg and rate > 3):
-                self.score['FN'] += 1
+                self.accuracy['FN'] += 1
             else:
                 print("Error")
-        self.score['TP'] /= nb
-        self.score['FP'] /= nb
-        self.score['TN'] /= nb
-        self.score['FN'] /= nb
-        self.score['ENTIRE'] =  self.score['TP'] +  self.score['TN']
+        # self.accuracy['TP'] /= nb
+        # self.accuracy['FP'] /= nb
+        # self.accuracy['TN'] /= nb
+        # self.accuracy['FN'] /= nb
+        self.accuracy['ACCURACY'] = (self.accuracy['TP'] + self.accuracy['TN'])/(self.accuracy['TP'] + self.accuracy['TN']+self.accuracy['FP']+self.accuracy['FN'])
 
 
-    def get_score(self):
-        print("TP:%f"%self.score['TP'])
-        print("FP:%f"%self.score['FP'])
-        print("TN:%f"%self.score['TN'])
-        print("FN:%f"%self.score['FN'])
-        print("score entire:%f"%self.score['ENTIRE'])
-        return self.score['ENTIRE']
+    def get_accuracy(self):
+        print("TP:%d" % self.accuracy['TP'])
+        print("FP:%d" % self.accuracy['FP'])
+        print("TN:%d" % self.accuracy['TN'])
+        print("FN:%d" % self.accuracy['FN'])
+        print("Accuracy:%f" % self.accuracy['ACCURACY'])
+        return self.accuracy['ACCURACY']
 
 def main():
     analyzerSentenceDictComplete = sentiment_analyzer_dict_complete()
-    print("\n>>Analyzer based on the dictionary of emotional words with semantic analyse")
+    print("\n>>Analyzer based on the dictionary of emotional words with semantic analysis")
     import sys
     for sentence in sys.argv[1:]:
         pos, neg = analyzerSentenceDictComplete.predict_review(sentence)

@@ -9,7 +9,7 @@ import sentiment_analyzer_classification
 
 
 def read_data(folder):
-    NB_Reviews_Class = 1000  # number of reviews of each class
+    NB_Reviews_Class = 2000  # number of reviews of each class
     dataset = {  # learn about the composition of dataset
         '1': 0,  # positive
         '2': 0,  # positive
@@ -79,22 +79,23 @@ analyzerSentenceDictComplete = sentiment_analyzer_dict_complete.sentiment_analyz
 print("===============Performance TEST==============")
 print("\n>>Analyzer based on the classification algo Bayes")
 analyzerClassification.evaluate(dev_reviews)
-analyzerClassification.get_score()
+analyzerClassification.get_accuracy()
 
-print("\n>>Analyzer based on the dictionary of emotional words with semantic analyse")
+print("\n>>Analyzer based on the dictionary of emotional words with semantic analysis")
 analyzerSentenceDictComplete.evaluate(dev_reviews)
-analyzerSentenceDictComplete.get_score()
+analyzerSentenceDictComplete.get_accuracy()
 
 print("===============Precise TEST==============")
-sentences = {
+sentences = [
     "Good and not good",  # neutral sentence, used in the all sentence below for the reason of a good visual comparison
-    "This camera have a good price and easy to use. Good and not good",  # positive sentence
+    "This camera is at a good price and easy to use. Good and not good",  # positive sentence
     "This camera is bad and difficult to use.  Good and not good",         #  negative sentence
-    "This camera don't have a good price and easy to use. Good and not good",  # negative sentence
-    "This camera have a good price and easy to use! Good and not good",  # punctuation emphize
-    "This camera have a very good price and easy to use. Good and not good",  # degree word
-    "This camera don't have a good price but easy to use! Good and not good",  # conjuction "but"
-}
+    "This camera isn't at a good price and easy to use. Good and not good",  # sentence of negation
+    "This camera is never not at a good price and easy to use. Good and not good", # sentence of double negation
+    "This camera isn't at a good price but easy to use! Good and not good",  # conjuction "but"
+    "This camera is at a good price and easy to use! Good and not good",  # punctuation emphasis
+    "This camera is at a very good price and easy to use. Good and not good",  # degree word
+]
 print("\n>>Analyzer based on the classification algo Bayes")
 for sentence in sentences:
     pos, neg = analyzerClassification.predict_review(sentence)
@@ -108,7 +109,7 @@ for sentence in sentences:
     neg_normal = neg_normal/unit
     print(sentence + "\npositive:" + str(pos_normal) + "," + "negative:" + str(neg_normal))
 
-print("\n>>Analyzer based on the dictionary of emotional words with semantic analyse")
+print("\n>>Analyzer based on the dictionary of emotional words with semantic analysis")
 for sentence in sentences:
     pos, neg = analyzerSentenceDictComplete.predict_review(sentence)
     print(sentence + "\npositive:" + str(pos) + "," + "negative:" + str(neg))
