@@ -83,24 +83,19 @@ class sentiment_analyzer_dict_complete:
         value_pos = 0
         value_neg = 0
         words = nltk.word_tokenize(sentence)
+
+        # turning logic
         if(words.count("but")==1):
-            index = words.index("but")
-            words_before = words[:index]
-            words_after = words[index:]
-            tempPos, tempNeg = self.get_value_words(words_before)
-            tempPos2,tempNeg2 = self.get_value_words(words_after)
-            value_pos += tempPos + 1.3*tempPos2
-            value_neg += tempNeg + 1.3*tempNeg2
+            value_pos, value_neg = self.conjunction_but(sentence)
         else:
             value_pos, value_neg = self.get_value_words(words)
 
+        # degree effected by punctuation of exclamation
         punction_emphize = self.punctuation_emphize(sentence)
         if(value_pos + value_neg >=0):
             value_pos *= punction_emphize
         elif(value_neg + value_neg <0):
             value_neg *= punction_emphize
-
-        # print(sentence, value_pos, value_neg)
 
         return value_pos, value_neg
 
@@ -129,8 +124,21 @@ class sentiment_analyzer_dict_complete:
                 value_pos += temp
               else:
                 value_neg += temp
-          # print(word, value_pos, value_neg)
         return value_pos,value_neg
+
+
+    def conjunction_but(self,sentence):
+        value_pos = 0
+        value_neg = 0
+        words = nltk.word_tokenize(sentence)
+        index = words.index("but")
+        words_before = words[:index]
+        words_after = words[index:]
+        tempPos, tempNeg = self.get_value_words(words_before)
+        tempPos2, tempNeg2 = self.get_value_words(words_after)
+        value_pos += tempPos + 1.5 * tempPos2
+        value_neg += tempNeg + 1.5 * tempNeg2
+        return value_pos, value_neg
 
 
     def punctuation_emphize(self, sentence):
@@ -140,6 +148,7 @@ class sentiment_analyzer_dict_complete:
             return 1 + nb_excalmatory * 0.5
         else:
             return 3
+
 
     def evaluate(self,dev_reviews):
         nb = len(dev_reviews)
