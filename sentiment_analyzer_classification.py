@@ -1,13 +1,9 @@
-import os
-
 import math
-import random
 
 import nltk
-from pandas import json
 
 
-class sentiment_analyzer_texte:
+class sentiment_analyzer_classfication:
     SMOOTHING = 1
 
     def __init__(self):
@@ -70,7 +66,6 @@ class sentiment_analyzer_texte:
 
         # transform the frequency of the word into its log porbability P(w|y=c)
         self.calculate_word_logprobas()
-        print(self.proClass)
 
 
     def calculate_class_logprobas(self):
@@ -116,24 +111,25 @@ class sentiment_analyzer_texte:
 
       pro_positive += self.proClass['positive']
       pro_negative += self.proClass['negative']
+      return pro_positive,pro_negative
 
-      if (pro_positive >= pro_negative):
-          return "positive"
-      else:
-          return "negative"
+
+    def predict_review(self,content):
+        pro_pos, pro_neg = self.get_logproba_review(content)
+        return pro_pos,pro_neg
 
     def evaluate(self,dev_reviews):
         nb = len(dev_reviews)
         for review in dev_reviews:
-            result = self.get_logproba_review(review[0])
+            pos, neg = self.predict_review(review[0])
             rate = review[1]
-            if (result == "positive" and rate > 3):
+            if (pos >= neg and rate > 3):
                 self.score['TP'] += 1
-            elif (result == 'positive' and rate < 3):
+            elif (pos >= neg and rate < 3):
                 self.score['FP'] += 1
-            elif (result == 'negative' and rate < 3):
+            elif (pos < neg and rate < 3):
                 self.score['TN'] += 1
-            elif (result == 'negative' and rate > 3):
+            elif (pos < neg and rate > 3):
                 self.score['FN'] += 1
             else:
                 print("Error")

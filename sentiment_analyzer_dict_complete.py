@@ -1,9 +1,5 @@
-import math
 import re
 import nltk
-
-from SentimentAnalysis import SentiWordNetReader
-
 
 class sentiment_analyzer_dict_complete:
     NEGATIONS = list()
@@ -37,16 +33,17 @@ class sentiment_analyzer_dict_complete:
                 self.ADVERBS_DEGREE[adverb_degree[0]] = adverb_degree[1]
 
 
-    def mark_negation(self,sentence):
+    def mark_negation(self, words):
         mark = False
-        for i, word in enumerate(sentence):
+        for i, word in enumerate(words):
             if (word in self.NEGATIONS):
                 mark = False if mark else True  # double negation.txt make affirmation
-                sentence[i] = '' # we don't need the negation anymore
+                words[i] = '' # we don't need the negation anymore
                 continue
             if (mark):
-                sentence[i] += '_NEG'
-        return sentence
+                words[i] += '_NEG'
+        # print(words)
+        return words
 
     def sent_tokenize(self,content):
         # use nltk to get the sentences of one texte
@@ -73,6 +70,7 @@ class sentiment_analyzer_dict_complete:
           value_pos += tempPos
           value_neg += tempNeg
 
+      # print("review",value_pos,value_neg)
       # normoalize two value, pos + neg = 1
       if (value_pos + value_neg != 0):
           pos = value_pos / (value_pos - value_neg)
@@ -97,8 +95,13 @@ class sentiment_analyzer_dict_complete:
             value_pos, value_neg = self.get_value_words(words)
 
         punction_emphize = self.punctuation_emphize(sentence)
-        value_pos *= punction_emphize
-        value_neg *= punction_emphize
+        if(value_pos + value_neg >=0):
+            value_pos *= punction_emphize
+        elif(value_neg + value_neg <0):
+            value_neg *= punction_emphize
+
+        # print(sentence, value_pos, value_neg)
+
         return value_pos, value_neg
 
 
@@ -108,23 +111,25 @@ class sentiment_analyzer_dict_complete:
         words = self.mark_negation(words)
         degree_adverbe = 1
         for word in words:
-          if(word in self.ADVERBS_DEGREE.keys()):  #for the degree adverb
-              if(float(self.ADVERBS_DEGREE.get(word))>0):
-                degree_adverbe = 1+float(self.ADVERBS_DEGREE.get(word))/1.5
+          if(word.lower() in self.ADVERBS_DEGREE.keys()):  #for the degree adverb
+              if(float(self.ADVERBS_DEGREE.get(word.lower()))>0):
+                degree_adverbe = 1+float(self.ADVERBS_DEGREE.get(word.lower()))/1.5
               else:
-                degree_adverbe = -1+float(self.ADVERBS_DEGREE.get(word))/1.5
+                degree_adverbe = -1+float(self.ADVERBS_DEGREE.get(word.lower()))/1.5
               continue
+          # print(degree_adverbe)
 
           negation = 1  # if the word is tagged by negation, we inverse its value
           if (re.search(r'(\w+)_NEG$', word) != None):
               negation = -1
               word = re.sub(r'(\w+)_NEG$', r'\1', word)
-          if word in self.dictionary.keys():
-              temp = self.dictionary[word] * negation * degree_adverbe
+          if word.lower() in self.dictionary.keys():
+              temp = self.dictionary.get(word.lower()) * negation * degree_adverbe
               if(temp>=0):
                 value_pos += temp
               else:
                 value_neg += temp
+          # print(word, value_pos, value_neg)
         return value_pos,value_neg
 
 
@@ -165,15 +170,3 @@ class sentiment_analyzer_dict_complete:
         print("FN:%f"%self.score['FN'])
         print("score entire:%f"%self.score['ENTIRE'])
         return self.score['ENTIRE']
-
-
-analyzerSentenceDictComplete = sentiment_analyzer_dict_complete()
-sentences = [
-                "This cellphone is .",
-                "not cheap."
-
-            ]
-
-for sentence in sentences:
-    pos, neg = analyzerSentenceDictComplete.predict_review(sentence)
-    print(sentence + "\npositive:" + str(pos) + "," + "negative:" + str(neg))
