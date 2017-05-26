@@ -26,6 +26,7 @@ Use analyzer based on the dictionary of emotional words with semantic analyse
 ```
 We can analyze several sentences seperated by space at the same time.
 ```
+## Evaluation and test example
 >>>>>Preparation TEST
 dataset of reviews{'1': 2000, '2': 2000, '3': 0, '4': 2000, '5': 2000}
 ===============Performance TEST==============
