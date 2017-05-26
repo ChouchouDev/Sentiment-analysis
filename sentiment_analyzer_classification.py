@@ -182,7 +182,7 @@ def main():
     import random
 
     import math
-    from pandas import json
+    import json
 
     def read_data(folder):
         NB_Reviews_Class = 1000  # number of reviews of each class
