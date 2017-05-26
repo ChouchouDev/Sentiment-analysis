@@ -2,7 +2,7 @@ import os
 import random
 
 import math
-from pandas import json
+import json
 
 import sentiment_analyzer_dict_complete
 import sentiment_analyzer_classification
