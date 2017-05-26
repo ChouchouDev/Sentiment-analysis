@@ -14,7 +14,6 @@ Emotional analysis (SA), also known as the tendency analysis and opinion mining,
 ## Stuff of developpement
 * Python 3.x
 * NLTK
-* panda
 
 ## Usage
 Use analyzer based on the classification algo Bayes
@@ -26,7 +25,62 @@ Use analyzer based on the dictionary of emotional words with semantic analyse
 >python sentiment_analyzer_classification.py "Sentence for analyze"
 ```
 We can analyze several sentences seperated by space at the same time.
+```
+>>>>>Preparation TEST
+dataset of reviews{'1': 2000, '2': 2000, '3': 0, '4': 2000, '5': 2000}
+===============Performance TEST==============
 
+>>Analyzer based on the classification algo Bayes
+TP:498
+FP:33
+TN:542
+FN:127
+Accuracy:0.866667
+
+>>Analyzer based on the dictionary of emotional words with semantic analysis
+TP:535
+FP:227
+TN:348
+FN:90
+Accuracy:0.735833
+===============Precise TEST==============
+
+>>Analyzer based on the classification algo Bayes
+Good and not good
+positive:0.585644330224252,negative:0.41435566977574795
+This camera is at a good price and easy to use. Good and not good
+positive:0.8217495629278319,negative:0.17825043707216814
+This camera is bad and difficult to use.  Good and not good
+positive:0.31580473181269547,negative:0.6841952681873045
+This camera isn't at a good price and easy to use. Good and not good
+positive:0.7748391586001706,negative:0.22516084139982934
+This camera is never not at a good price and easy to use. Good and not good
+positive:0.7376330038493273,negative:0.26236699615067277
+This camera isn't at a good price but easy to use! Good and not good
+positive:0.8109000267896666,negative:0.18909997321033342
+This camera is at a good price and easy to use! Good and not good
+positive:0.8719950323508162,negative:0.12800496764918373
+This camera is at a very good price and easy to use. Good and not good
+positive:0.8398022979799675,negative:0.16019770202003245
+
+>>Analyzer based on the dictionary of emotional words with semantic analysis
+Good and not good
+positive:0.5,negative:0.5
+This camera is at a good price and easy to use. Good and not good
+positive:0.6982922120613468,negative:0.30170778793865316
+This camera is bad and difficult to use.  Good and not good
+positive:0.2463050323939432,negative:0.7536949676060569
+This camera isn't at a good price and easy to use. Good and not good
+positive:0.30170778793865316,negative:0.6982922120613468
+This camera is never not at a good price and easy to use. Good and not good
+positive:0.6982922120613468,negative:0.30170778793865316
+This camera isn't at a good price but easy to use! Good and not good
+positive:0.3753293607126822,negative:0.6246706392873178
+This camera is at a good price and easy to use! Good and not good
+positive:0.7495899177863296,negative:0.25041008221367045
+This camera is at a very good price and easy to use. Good and not good
+positive:0.8341735691605251,negative:0.1658264308394749
+```
 ## Resources Descriptions
 * **Test.py**  
   Test for two analyzer 
