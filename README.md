@@ -44,43 +44,43 @@ TN:348
 FN:90
 Accuracy:0.735833
 ===============Precise TEST==============
-
->>Analyzer based on the classification algo Bayes
-Good and not good
-positive:0.585644330224252,negative:0.41435566977574795
-This camera is at a good price and easy to use. Good and not good
-positive:0.8217495629278319,negative:0.17825043707216814
-This camera is bad and difficult to use.  Good and not good
-positive:0.31580473181269547,negative:0.6841952681873045
-This camera isn't at a good price and easy to use. Good and not good
-positive:0.7748391586001706,negative:0.22516084139982934
-This camera is never not at a good price and easy to use. Good and not good
-positive:0.7376330038493273,negative:0.26236699615067277
-This camera isn't at a good price but easy to use! Good and not good
-positive:0.8109000267896666,negative:0.18909997321033342
-This camera is at a good price and easy to use! Good and not good
-positive:0.8719950323508162,negative:0.12800496764918373
-This camera is at a very good price and easy to use. Good and not good
-positive:0.8398022979799675,negative:0.16019770202003245
-
->>Analyzer based on the dictionary of emotional words with semantic analysis
-Good and not good
-positive:0.5,negative:0.5
-This camera is at a good price and easy to use. Good and not good
-positive:0.6982922120613468,negative:0.30170778793865316
-This camera is bad and difficult to use.  Good and not good
-positive:0.2463050323939432,negative:0.7536949676060569
-This camera isn't at a good price and easy to use. Good and not good
-positive:0.30170778793865316,negative:0.6982922120613468
-This camera is never not at a good price and easy to use. Good and not good
-positive:0.6982922120613468,negative:0.30170778793865316
-This camera isn't at a good price but easy to use! Good and not good
-positive:0.3753293607126822,negative:0.6246706392873178
-This camera is at a good price and easy to use! Good and not good
-positive:0.7495899177863296,negative:0.25041008221367045
-This camera is at a very good price and easy to use. Good and not good
-positive:0.8341735691605251,negative:0.1658264308394749
+sentences = [
+    "Good and not good",  # 1. neutral sentence, used in the all sentence below for the reason of a good visual comparison
+    "This camera is at a good price and easy to use. Good and not good",  #2. positive sentence
+    "This camera is bad and difficult to use.  Good and not good",         # 3. negative sentence
+    "This camera isn't at a good price and easy to use. Good and not good",  # 4. sentence of negation
+    "This camera is never not at a good price and easy to use. Good and not good", # 5. sentence of double negation
+    "This camera isn't at a good price but easy to use! Good and not good",  # 6. conjuction "but"
+    "This camera is at a good price and easy to use! Good and not good",  # 7. punctuation emphasis
+    "This camera is at a very good price and easy to use. Good and not good",  # 8. degree word
+]
 ```
+__Analyzer based on the classification algo Bayes__
+
+|  |  | positive | negative |    
+| - | - |- | -- |    
+| 1 | Good and not good | 0.585644 | 0.4143556 |  
+|2|This camera is at a good price and easy to use. Good and not good|0.8217495|0.178250|  
+|3|This camera is bad and difficult to use.  Good and not good|0.31580473|0.68419|  
+|4|This camera isn't at a good price and easy to use. Good and not good|0.7748391|0.225160|  
+|5|This camera is never not at a good price and easy to use. Good and not good|0.7376330|0.262366|  
+|6|This camera isn't at a good price but easy to use! Good and not good| 0.8109000|0.189099|  
+|7|This camera is at a good price and easy to use! Good and not good|0.8719950|0.128004|  
+|8|This camera is at a very good price and easy to use. Good and not good|0.8398022|0.160197|  
+
+__Analyzer based on the dictionary of emotional words with semantic analysis__
+
+|  |  | positive | negative |    
+| - | - |- | -- |    
+|1|Good and not good|0.5|0.5|  
+|2|This camera is at a good price and easy to use. Good and not good|0.698292|0.3017077|  
+|3|This camera is bad and difficult to use.  Good and not good|0.246305|0.753694|  
+|4|This camera isn't at a good price and easy to use. Good and not good|0.3017077|0.69829|  
+|5|This camera is never not at a good price and easy to use. Good and not good|0.698292|0.301707|  
+|6|This camera isn't at a good price but easy to use! Good and not good|0.375329|0.624670|  
+|7|This camera is at a good price and easy to use! Good and not good|0.749589|0.250410|  
+|8|This camera is at a very good price and easy to use. Good and not good|0.834173|0.165826|  
+
 ## Resources Descriptions
 * **Test.py**  
   Test for two analyzer 
